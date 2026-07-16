@@ -30,15 +30,7 @@ impl Deck {
     }
 
     fn deal(&mut self, num_cards: usize) -> Vec<String> {
-        let mut dealt_cards = Vec::new();
-        for _ in 0..num_cards {
-            if let Some(card) = self.draw() {
-                dealt_cards.push(card);
-            } else {
-                break;
-            }
-        }
-        dealt_cards
+        self.cards.split_off(self.cards.len() - num_cards)
     }
 }
 
